@@ -1,0 +1,87 @@
+/* ===================================================
+   CSS カスタムプロパティ（デザイントークン）
+   Google Finance ダークモード準拠
+   =================================================== */
+
+:root {
+  /* 背景色 */
+  --bg-primary:       #0f0f0f;
+  --bg-secondary:     #1a1a1a;
+  --bg-tertiary:      #252525;
+  --bg-card:          #1c1c1c;
+  --bg-hover:         #2a2a2a;
+  --bg-modal:         rgba(0, 0, 0, 0.75);
+  --bg-sidebar:       #161616;
+  --bg-header:        #111111;
+
+  /* ボーダー */
+  --border:           #2e2e2e;
+  --border-subtle:    #1f1f1f;
+  --border-focus:     #5f6368;
+
+  /* テキスト */
+  --text-primary:     #e8eaed;
+  --text-secondary:   #9aa0a6;
+  --text-tertiary:    #5f6368;
+  --text-disabled:    #3c4043;
+
+  /* アクセントカラー */
+  --accent-up:        #00b96b;     /* 上昇（緑） */
+  --accent-down:      #f44336;     /* 下落（赤） */
+  --accent-blue:      #1a73e8;     /* Google ブルー */
+  --accent-blue-hover:#1557b0;
+
+  /* チャート塗りつぶし */
+  --chart-up-line:    #00b96b;
+  --chart-up-fill:    rgba(0, 185, 107, 0.12);
+  --chart-down-line:  #f44336;
+  --chart-down-fill:  rgba(244, 67, 54, 0.12);
+
+  /* テクニカル指標色 */
+  --indicator-sma5:   #ffb300;
+  --indicator-sma25:  #7c4dff;
+  --indicator-sma75:  #ff6d00;
+  --indicator-sma200: #00bcd4;
+  --indicator-ema9:   #e040fb;
+  --indicator-ema21:  #00e5ff;
+  --indicator-bb:     rgba(100, 181, 246, 0.5);
+  --indicator-macd:   #1a73e8;
+  --indicator-signal: #f44336;
+  --indicator-hist-up:#00b96b;
+  --indicator-hist-down:#f44336;
+  --indicator-rsi:    #ffb300;
+
+  /* シャドウ */
+  --shadow-card:      0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.6);
+  --shadow-modal:     0 8px 32px rgba(0, 0, 0, 0.8);
+  --shadow-sidebar:   4px 0 20px rgba(0, 0, 0, 0.6);
+
+  /* スペーシング */
+  --spacing-xs:       4px;
+  --spacing-sm:       8px;
+  --spacing-md:       16px;
+  --spacing-lg:       24px;
+  --spacing-xl:       32px;
+
+  /* ボーダーラジアス */
+  --radius-sm:        4px;
+  --radius-md:        8px;
+  --radius-lg:        12px;
+  --radius-xl:        16px;
+  --radius-full:      9999px;
+
+  /* アニメーション */
+  --transition-fast:  150ms ease;
+  --transition-base:  250ms ease;
+  --transition-slow:  350ms ease;
+
+  /* レイアウト */
+  --header-height:    60px;
+  --sidebar-width:    320px;
+  --grid-columns:     4;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 1400px) { :root { --grid-columns: 3; } }
+@media (max-width: 1024px) { :root { --grid-columns: 2; } }
+@media (max-width: 640px)  { :root { --grid-columns: 1; } }
