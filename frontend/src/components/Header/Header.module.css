@@ -1,0 +1,171 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  height: var(--header-height);
+  padding: 0 var(--spacing-md);
+  background: var(--bg-header);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-shrink: 0;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-shrink: 0;
+}
+
+/* ======= サイドバートグル ======= */
+.sidebarToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast);
+}
+
+.sidebarToggle:hover {
+  background: var(--bg-hover);
+}
+
+.menuIcon {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menuIcon span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--text-secondary);
+  border-radius: 1px;
+  transition: background var(--transition-fast);
+}
+
+.sidebarToggle:hover .menuIcon span {
+  background: var(--text-primary);
+}
+
+/* ======= Google Finance リンク ======= */
+.googleFinanceLink {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: 6px 10px;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none !important;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.googleFinanceLink:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  text-decoration: none !important;
+}
+
+.googleFinanceText {
+  white-space: nowrap;
+}
+
+/* ======= 検索ボックス ======= */
+.searchWrapper {
+  flex: 1;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  width: 100%;
+  padding: 8px 14px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  font-size: 14px;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+  cursor: text;
+}
+
+.searchBox:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-focus);
+}
+
+.searchIcon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.searchPlaceholder {
+  flex: 1;
+  text-align: left;
+}
+
+.kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 6px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  color: var(--text-tertiary);
+  font-family: inherit;
+}
+
+/* ======= 認証ボタン ======= */
+.authBtn {
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: var(--accent-blue);
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background var(--transition-fast);
+}
+
+.authBtn:hover {
+  background: var(--accent-blue-hover);
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.userName {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+}
