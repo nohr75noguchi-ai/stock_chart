@@ -1,0 +1,228 @@
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ======= 戻るボタン ======= */
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 13px;
+  transition: all var(--transition-fast);
+  margin-bottom: var(--spacing-md);
+}
+
+.backBtn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+/* ======= 銘柄ヘッダー ======= */
+.stockHeader {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-md);
+}
+
+.stockTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stockName {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.stockTicker {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-family: 'Roboto Mono', monospace;
+}
+
+.priceBlock {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.currentPrice {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.priceLabel {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.prevClose {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-left: auto;
+}
+
+.prevCloseLabel {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.prevCloseValue {
+  font-size: 14px;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ======= チャートコントロール ======= */
+.chartControls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--spacing-sm);
+}
+
+.controlGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.controlLabel {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-right: 2px;
+}
+
+.controlBtn {
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.controlBtn:hover, .controlBtn.active {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  border-color: var(--border-focus);
+}
+
+.compareInputWrapper {
+  display: flex;
+  gap: 4px;
+}
+
+.compareInput {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  padding: 4px 8px;
+  font-size: 12px;
+  width: 100px;
+}
+
+.addCompareBtn {
+  padding: 4px 8px;
+  background: var(--accent-blue);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+}
+
+.compareTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  background: rgba(26, 115, 232, 0.15);
+  border: 1px solid var(--accent-blue);
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  color: var(--accent-blue);
+}
+
+.compareTag button {
+  font-size: 10px;
+  color: var(--accent-blue);
+}
+
+.indicatorBtn {
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.indicatorBtn:hover {
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+.indicatorActive {
+  background: rgba(26, 115, 232, 0.15);
+  color: var(--accent-blue) !important;
+  border-color: var(--accent-blue) !important;
+}
+
+/* ======= チャートセクション ======= */
+.chartSection {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ======= タブ ======= */
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  margin-top: var(--spacing-md);
+}
+
+.tab {
+  padding: 10px var(--spacing-md);
+  font-size: 14px;
+  color: var(--text-secondary);
+  border-bottom: 2px solid transparent;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.tab:hover {
+  color: var(--text-primary);
+}
+
+.tabActive {
+  color: var(--accent-blue) !important;
+  border-bottom-color: var(--accent-blue) !important;
+}
+
+.tabContent {
+  padding: var(--spacing-md) 0;
+}

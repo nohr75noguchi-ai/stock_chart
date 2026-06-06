@@ -1,0 +1,174 @@
+/* 共通タブスタイル */
+.container {
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl);
+}
+
+.noData {
+  color: var(--text-secondary);
+  font-size: 13px;
+  padding: var(--spacing-md);
+}
+
+/* OverviewTab */
+.description {
+  padding: var(--spacing-md);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-md);
+  border: 1px solid var(--border);
+}
+
+.description p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.section {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px var(--spacing-md);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.rowLabel {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.rowValue {
+  font-size: 13px;
+  color: var(--text-primary);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.label {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* EarningsTab */
+.nextEarnings {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Table 共通 */
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.table th {
+  text-align: right;
+  padding: 8px var(--spacing-md);
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.table th:first-child {
+  text-align: left;
+}
+
+.table td {
+  text-align: right;
+  padding: 8px var(--spacing-md);
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-subtle);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.table td:first-child {
+  text-align: left;
+}
+
+.table tbody tr:hover {
+  background: var(--bg-hover);
+}
+
+.up   { color: var(--accent-up)   !important; }
+.down { color: var(--accent-down) !important; }
+
+.metricName {
+  color: var(--text-secondary) !important;
+  font-weight: 500;
+}
+
+/* FinancialsTab */
+.modeToggle {
+  display: flex;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+}
+
+.modeBtn {
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.modeBtn:hover {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+}
+
+.modeActive {
+  color: var(--accent-blue) !important;
+  border-color: var(--accent-blue) !important;
+  background: rgba(26, 115, 232, 0.1) !important;
+}
