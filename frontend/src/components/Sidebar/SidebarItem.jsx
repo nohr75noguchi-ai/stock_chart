@@ -11,16 +11,22 @@ import useStore from '../../store/watchlistStore';
 import PriceChange from '../Common/PriceChange';
 import styles from './SidebarItem.module.css';
 
-const MiniSparkline = ({ ticker, isUp }) => {
+const MiniSparkline = ({ ticker }) => {
   const canvasRef = useRef(null);
   const chartRef  = useRef(null);
-  const { data }  = useHistory(ticker, '5d');
+  const { selectedPeriod } = useStore();
+  const { data }  = useHistory(ticker, selectedPeriod);
 
   useEffect(() => {
     if (!canvasRef.current || !data.length) return;
 
     const closes = data.map((d) => d.close);
-    const color  = isUp ? '#00b96b' : '#f44336';
+    
+    // 期間の最初と最後の終値を比較して上昇（緑）か下落（赤）かを判定
+    const firstVal = closes[0] ?? 0;
+    const lastVal  = closes[closes.length - 1] ?? 0;
+    const isPeriodUp = lastVal >= firstVal;
+    const color = isPeriodUp ? '#00b96b' : '#f44336';
 
     if (chartRef.current) chartRef.current.destroy();
 
@@ -49,7 +55,7 @@ const MiniSparkline = ({ ticker, isUp }) => {
     });
 
     return () => chartRef.current?.destroy();
-  }, [data, isUp]);
+  }, [data]);
 
   return <canvas ref={canvasRef} width={80} height={36} />;
 };
@@ -100,7 +106,7 @@ const SidebarItem = ({ item }) => {
       </div>
 
       <div className={styles.chart}>
-        <MiniSparkline ticker={item.ticker} isUp={isUp} />
+        <MiniSparkline ticker={item.ticker} />
       </div>
 
       <div className={styles.price}>
