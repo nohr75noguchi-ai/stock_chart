@@ -25,10 +25,15 @@ const Header = () => {
   const { user, sidebarOpen, toggleSidebar, openSearchModal, searchModalOpen } = useStore();
 
   const handleAuth = async () => {
-    if (user) {
-      await signOutUser();
-    } else {
-      await signInWithGoogle();
+    try {
+      if (user) {
+        await signOutUser();
+      } else {
+        await signInWithGoogle();
+      }
+    } catch (err) {
+      console.error('Authentication error:', err);
+      alert(`ログインに失敗しました。\nエラー詳細: ${err.message}\n\n※Firebaseのプロジェクト設定や環境変数が正しいかご確認ください。`);
     }
   };
 

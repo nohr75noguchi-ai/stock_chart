@@ -153,14 +153,15 @@ def get_history(symbol: str, period: str = "1d", interval: str = "5m", start: Op
 
 
 def search_symbols(query: str, limit: int = 10) -> list:
-    """銘柄を検索する（yfinance の search 機能を使用）"""
+    """銘柄を検索する（yfinance の Search 機能を使用）"""
     try:
-        results = yf.search(query, max_results=limit)
-        if not results or "quotes" not in results:
+        search_obj = yf.Search(query, max_results=limit)
+        results = search_obj.quotes
+        if not results:
             return []
 
         items = []
-        for q in results["quotes"][:limit]:
+        for q in results[:limit]:
             symbol = q.get("symbol", "")
             name = q.get("longname") or q.get("shortname") or symbol
             exchange = q.get("exchange", "")
@@ -173,7 +174,8 @@ def search_symbols(query: str, limit: int = 10) -> list:
                 "type": quote_type,
             })
         return items
-    except Exception:
+    except Exception as e:
+        print(f"Search error: {e}")
         return []
 
 
