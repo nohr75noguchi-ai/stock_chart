@@ -54,10 +54,16 @@ const watchlistRef = (uid) =>
 /** 全ウォッチリストをリアルタイム監視 */
 export const subscribeToWatchlist = (uid, callback) => {
   const q = query(watchlistRef(uid), orderBy('order', 'asc'));
-  return onSnapshot(q, (snapshot) => {
-    const items = snapshot.docs.map((d) => ({ id: d.id, ...d.data() }));
-    callback(items);
-  });
+  return onSnapshot(
+    q,
+    (snapshot) => {
+      const items = snapshot.docs.map((d) => ({ id: d.id, ...d.data() }));
+      callback(items);
+    },
+    (error) => {
+      console.error('Firestore watchlist subscription error:', error);
+    }
+  );
 };
 
 /** 銘柄を追加 */

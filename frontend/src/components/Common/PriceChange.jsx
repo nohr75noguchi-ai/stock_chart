@@ -10,7 +10,7 @@ const PriceChange = ({ change, changePct, size = 'md', showArrow = true }) => {
   const isUp      = change >= 0;
   const colorClass = isUp ? 'up' : 'down';
   const arrow     = showArrow ? (isUp ? '▲' : '▼') : '';
-  const sign      = isUp ? '+' : '';
+  const sign      = isUp ? '+' : '-';
 
   const sizeStyle = {
     sm:  { fontSize: '11px', gap: '3px' },

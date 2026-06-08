@@ -18,9 +18,16 @@ const MiniSparkline = ({ ticker }) => {
   const { data }  = useHistory(ticker, selectedPeriod);
 
   useEffect(() => {
+    // 以前のチャートインスタンスがあれば確実に破棄
+    if (chartRef.current) {
+      chartRef.current.destroy();
+      chartRef.current = null;
+    }
+
     if (!canvasRef.current || !data.length) return;
 
     const closes = data.map((d) => d.close);
+    const labels = data.map((d) => d.timestamp);
     
     // 期間の最初と最後の終値を比較して上昇（緑）か下落（赤）かを判定
     const firstVal = closes[0] ?? 0;
@@ -28,25 +35,30 @@ const MiniSparkline = ({ ticker }) => {
     const isPeriodUp = lastVal >= firstVal;
     const color = isPeriodUp ? '#00b96b' : '#f44336';
 
-    if (chartRef.current) chartRef.current.destroy();
-
     chartRef.current = new Chart(canvasRef.current, {
       type: 'line',
       data: {
-        labels: closes.map((_, i) => i),
+        labels: labels,
         datasets: [{
           data: closes,
           borderColor: color,
           borderWidth: 1.5,
           fill: false,
-          tension: 0.3,
+          tension: 0.05, // 曲線による歪みをなくす
           pointRadius: 0,
         }],
       },
       options: {
-        responsive: false,
+        responsive: true,
+        maintainAspectRatio: false,
         animation: false,
-        plugins: { legend: { display: false }, tooltip: { enabled: false } },
+        layout: {
+          padding: 0, // 余白を詰めて最大サイズで描画
+        },
+        plugins: { 
+          legend: { display: false }, 
+          tooltip: { enabled: false } 
+        },
         scales: {
           x: { display: false },
           y: { display: false },
@@ -54,10 +66,19 @@ const MiniSparkline = ({ ticker }) => {
       },
     });
 
-    return () => chartRef.current?.destroy();
+    return () => {
+      if (chartRef.current) {
+        chartRef.current.destroy();
+        chartRef.current = null;
+      }
+    };
   }, [data]);
 
-  return <canvas ref={canvasRef} width={80} height={36} />;
+  return (
+    <div style={{ width: '80px', height: '36px', position: 'relative' }}>
+      <canvas ref={canvasRef} />
+    </div>
+  );
 };
 
 const SidebarItem = ({ item }) => {
